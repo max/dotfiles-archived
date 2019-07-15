@@ -1,7 +1,7 @@
 provider "digitalocean" {}
 
 variable "region" {
-  default = "fra1"
+  default = "sfo2"
 }
 
 resource "digitalocean_volume" "dev" {
@@ -24,7 +24,7 @@ resource "digitalocean_droplet" "dev" {
   private_networking = true
   backups            = true
   ipv6               = true
-  ssh_keys           = [23737229]                        # doctl compute ssh-key list
+  ssh_keys           = [25043353] # doctl compute ssh-key list
   volume_ids         = ["${digitalocean_volume.dev.id}"]
 
   provisioner "file" {
@@ -33,7 +33,8 @@ resource "digitalocean_droplet" "dev" {
 
     connection {
       type        = "ssh"
-      private_key = "${file("~/.ssh/ipad_rsa")}"
+      host        = self.ipv4_address
+      private_key = "${file("~/.ssh/id_rsa")}"
       user        = "root"
       timeout     = "2m"
     }
@@ -47,7 +48,8 @@ resource "digitalocean_droplet" "dev" {
 
     connection {
       type        = "ssh"
-      private_key = "${file("~/.ssh/ipad_rsa")}"
+      host        = self.ipv4_address
+      private_key = "${file("~/.ssh/id_rsa")}"
       user        = "root"
       timeout     = "2m"
     }
@@ -59,35 +61,34 @@ resource "digitalocean_firewall" "dev" {
 
   droplet_ids = ["${digitalocean_droplet.dev.id}"]
 
-  inbound_rule = [
-    {
-      protocol         = "tcp"
-      port_range       = "22"
-      source_addresses = ["0.0.0.0/0", "::/0"]
-    },
-    {
-      protocol         = "udp"
-      port_range       = "60000-60010"
-      source_addresses = ["0.0.0.0/0", "::/0"]
-    },
-  ]
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "22"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
 
-  outbound_rule = [
-    {
-      protocol              = "tcp"
-      port_range            = "1-65535"
-      destination_addresses = ["0.0.0.0/0", "::/0"]
-    },
-    {
-      protocol              = "udp"
-      port_range            = "1-65535"
-      destination_addresses = ["0.0.0.0/0", "::/0"]
-    },
-    {
-      protocol              = "icmp"
-      destination_addresses = ["0.0.0.0/0", "::/0"]
-    },
-  ]
+  inbound_rule {
+    protocol         = "udp"
+    port_range       = "60000-60010"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "tcp"
+    port_range            = "1-65535"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "udp"
+    port_range            = "1-65535"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "icmp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
 }
 
 output "public_ip" {

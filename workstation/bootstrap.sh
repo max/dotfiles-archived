@@ -334,7 +334,7 @@ cat > pull-secrets.sh <<'EOF'
 set -eu
 
 echo "Authenticating with 1Password"
-export OP_SESSION_my=$(op signin https://my.1password.com ftharsln@gmail.com --output=raw)
+export OP_SESSION_my=$(op signin https://my.1password.com max@max.wtf --output=raw)
 
 echo "Pulling secrets"
 

@@ -1,6 +1,6 @@
 [user]
-	name = Fatih Arslan
-	email = ftharsln@gmail.com
+	name = Max Schoening
+	email = max@max.dev
 [alias]
 	st = status -sb
 	ci = commit

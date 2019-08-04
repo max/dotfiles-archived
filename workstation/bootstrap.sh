@@ -377,7 +377,7 @@ fi
 
 
 # Set correct timezone
-timedatectl set-timezone Europe/Istanbul
+timedatectl set-timezone America/Los_Angeles
 
 echo ""
 echo "==> Done!"

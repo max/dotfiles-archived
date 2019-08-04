@@ -111,6 +111,12 @@ if ! [ -x "$(command -v go)" ]; then
   export PATH="/usr/local/go/bin:$PATH"
 fi
 
+# install Node.js
+if ! [-x "$(command -v node)" ]; then
+  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+fi
+
 # install 1password
 if ! [ -x "$(command -v op)" ]; then
   export OP_VERSION="v0.5.6-003"

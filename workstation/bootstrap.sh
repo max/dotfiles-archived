@@ -30,6 +30,12 @@ if [ "${UPGRADE_PACKAGES}" != "none" ]; then
     curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
   fi
 
+  YARN_SOURCE="/etc/apt/sources.list.d/yarn.list"
+  if [ ! -f "${YARN_SOURCE}" ]; then
+    echo "deb https://dl.yarnpkg.com/debian/ $DISTRO main" | tee -a ${YARN_SOURCE}
+    curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  fi
+
   sudo apt-get update
   sudo apt-get upgrade -y
 fi
@@ -104,12 +110,13 @@ sudo apt-get install -qq \
   tree \
   unzip \
   wget \
+  yarn \
   zgen \
   zip \
   zlib1g-dev \
   vim-gtk3 \
   zsh \
-  --no-install-recommends \
+  --no-install-recommends
 
 rm -rf /var/lib/apt/lists/*
 

@@ -102,9 +102,6 @@ endif
 syntax enable
 set t_Co=256
 set background=dark
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
 
 augroup filetypedetect
   command! -nargs=* -complete=help Help vertical belowright help <args>

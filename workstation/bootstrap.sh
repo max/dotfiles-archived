@@ -13,11 +13,21 @@ if [ "${UPGRADE_PACKAGES}" != "none" ]; then
   sudo add-apt-repository ppa:keithw/mosh-dev -y
   sudo add-apt-repository ppa:jonathonf/vim -y
 
+  DISTRO=$(lsb_release -c -s)
+
   CLOUD_SDK_SOURCE="/etc/apt/sources.list.d/google-cloud-sdk.list"
-  CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+  CLOUD_SDK_REPO="cloud-sdk-$DISTRO"
   if [ ! -f "${CLOUD_SDK_SOURCE}" ]; then
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a ${CLOUD_SDK_SOURCE}
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+  fi
+
+  NODE_VERSION="12.x"
+  NODE_SOURCE="/etc/apt/sources.list.d/nodesource.list"
+  if [ ! -f "${NODE_SOURCE}" ]; then
+    echo "deb https://deb.nodesource.com/node_$NODE_VERSION $DISTRO main" | tee -a ${NODE_SOURCE}
+    echo "deb-src https://deb.nodesource.com/node_$NODE_VERSION $DISTRO main" | tee -a ${NODE_SOURCE}
+    curl https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
   fi
 
   sudo apt-get update
@@ -65,6 +75,7 @@ sudo apt-get install -qq \
   musl-tools \
   ncdu \
   netcat-openbsd \
+  nodejs \
   openssh-server \
   pkg-config \
   protobuf-compiler \
@@ -109,12 +120,6 @@ if ! [ -x "$(command -v go)" ]; then
   tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz" 
   rm -f "go${GO_VERSION}.linux-amd64.tar.gz"
   export PATH="/usr/local/go/bin:$PATH"
-fi
-
-# install Node.js
-if ! [-x "$(command -v node)" ]; then
-  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  sudo apt-get install -y nodejs
 fi
 
 # install 1password

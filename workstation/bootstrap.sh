@@ -226,6 +226,7 @@ if [ ! -f "${VIM_PLUG_FILE}" ]; then
   git clone "https://github.com/mileszs/ack.vim"
   git clone "https://github.com/roxma/vim-tmux-clipboard"
   git clone "https://github.com/plasticboy/vim-markdown"
+  git clone "https://github.com/prettier/vim-prettier"
   git clone "https://github.com/scrooloose/nerdtree"
   git clone "https://github.com/t9md/vim-choosewin"
   git clone "https://github.com/tmux-plugins/vim-tmux"

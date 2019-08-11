@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'scrooloose/nerdtree'
 Plug 't9md/vim-choosewin'
 Plug 'roxma/vim-tmux-clipboard'

@@ -508,7 +508,9 @@ noremap <Leader>f :NERDTreeFind<cr>
 let NERDTreeShowHidden=1
 
 " ==================== ag ====================
-let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
 
 " ==================== markdown ====================
 let g:vim_markdown_folding_disabled = 1

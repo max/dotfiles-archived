@@ -53,6 +53,7 @@ sudo apt-get install -qq \
   dnsutils \
   docker.io \
   fakeroot-ng \
+  fzf \
   gdb \
   git \
   git-crypt \
@@ -203,44 +204,6 @@ if ! [ -x "$(command -v hub)" ]; then
   rm -f hub-linux-amd64-${HUB_VERSION}.tgz*
 fi
 
-VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
-if [ ! -f "${VIM_PLUG_FILE}" ]; then
-  echo " ==> Installing vim plugins"
-  curl -fLo ${VIM_PLUG_FILE} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-  mkdir -p "${HOME}/.vim/plugged"
-  pushd "${HOME}/.vim/plugged"
-  git clone "https://github.com/AndrewRadev/splitjoin.vim"
-  git clone "https://github.com/ConradIrwin/vim-bracketed-paste"
-  git clone "https://github.com/Raimondi/delimitMate"
-  git clone "https://github.com/SirVer/ultisnips"
-  git clone "https://github.com/cespare/vim-toml"
-  git clone "https://github.com/corylanou/vim-present"
-  git clone "https://github.com/ekalinin/Dockerfile.vim"
-  git clone "https://github.com/elzr/vim-json"
-  git clone "https://github.com/fatih/vim-hclfmt"
-  git clone "https://github.com/fatih/vim-nginx"
-  git clone "https://github.com/fatih/vim-go"
-  git clone "https://github.com/hashivim/vim-hashicorp-tools"
-  git clone "https://github.com/junegunn/fzf.vim"
-  git clone "https://github.com/mileszs/ack.vim"
-  git clone "https://github.com/roxma/vim-tmux-clipboard"
-  git clone "https://github.com/plasticboy/vim-markdown"
-  git clone "https://github.com/prettier/vim-prettier"
-  git clone "https://github.com/scrooloose/nerdtree"
-  git clone "https://github.com/t9md/vim-choosewin"
-  git clone "https://github.com/tmux-plugins/vim-tmux"
-  git clone "https://github.com/tmux-plugins/vim-tmux-focus-events"
-  git clone "https://github.com/fatih/molokai"
-  git clone "https://github.com/tpope/vim-commentary"
-  git clone "https://github.com/tpope/vim-eunuch"
-  git clone "https://github.com/tpope/vim-fugitive"
-  git clone "https://github.com/tpope/vim-repeat"
-  git clone "https://github.com/tpope/vim-scriptease"
-  git clone "https://github.com/ervandew/supertab"
-  popd
-fi
-
 if [ ! -d "$(go env GOPATH)" ]; then
   echo " ==> Installing Go tools"
   # vim-go tooling
@@ -269,15 +232,6 @@ if [ ! -d "$(go env GOPATH)" ]; then
   go install github.com/golang/protobuf/protoc-gen-go
 
   cp -r $(go env GOPATH)/bin/* /usr/local/bin/
-fi
-
-if [ ! -d "${HOME}/.fzf" ]; then
-  echo " ==> Installing fzf"
-  git clone https://github.com/junegunn/fzf "${HOME}/.fzf"
-  pushd "${HOME}/.fzf"
-  git remote set-url origin git@github.com:junegunn/fzf.git 
-  ${HOME}/.fzf/install --bin --64 --no-bash --no-zsh --no-fish
-  popd
 fi
 
 if [ ! -d "${HOME}/.zsh" ]; then
@@ -333,7 +287,7 @@ if [ ! -d /mnt/dev/code/dotfiles ]; then
   cd "/mnt/dev/code/dotfiles"
   git remote set-url origin git@github.com:max/dotfiles.git
 
-  ln -sfn $(pwd)/vimrc "${HOME}/.vimrc"
+  ln -sfn $(pwd)/vim "${HOME}/.vim"
   ln -sfn $(pwd)/zshrc "${HOME}/.zshrc"
   ln -sfn $(pwd)/tmuxconf "${HOME}/.tmux.conf"
   ln -sfn $(pwd)/tigrc "${HOME}/.tigrc"
@@ -342,7 +296,6 @@ if [ ! -d /mnt/dev/code/dotfiles ]; then
   ln -sfn $(pwd)/agignore "${HOME}/.agignore"
   ln -sfn $(pwd)/sshconfig "${HOME}/.ssh/config"
 fi
-
 
 if [ ! -f "/mnt/dev/secrets/pull-secrets.sh" ]; then
   echo "==> Creating pull-secret.sh script"

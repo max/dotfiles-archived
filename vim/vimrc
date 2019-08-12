@@ -1,38 +1,37 @@
-" I use the same vimrc for both nvim and vim
-call plug#begin('~/.vim/plugged')
-
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
-Plug 'cespare/vim-toml'
-Plug 'corylanou/vim-present', {'for' : 'present'}
-Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/vim-go'
-Plug 'fatih/vim-hclfmt'
-Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
-Plug 'scrooloose/nerdtree'
-Plug 't9md/vim-choosewin'
-Plug 'roxma/vim-tmux-clipboard'
-Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'fatih/molokai'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-scriptease'
-Plug 'ervandew/supertab'
-
-call plug#end()
+if &loadplugins
+  packadd! splitjoin.vim
+  packadd! vim-bracketed-paste
+  packadd! delimitMate
+  packadd! ultisnips
+  packadd! vim-toml
+  packadd! vim-present
+  packadd! Dockerfile.vim
+  packadd! vim-json
+  packadd! vim-go
+  packadd! vim-hclfmt
+  packadd! vim-nginx
+  packadd! tabular
+  packadd! vim-hashicorp-tools
+  if executable('fzf')
+    packadd! fzf
+    packadd! fzf.vim
+  endif
+  packadd! ack.vim
+  packadd! vim-markdown
+  packadd! vim-prettier
+  packadd! nerdtree
+  packadd! vim-choosewin
+  packadd! vim-tmux-clipboard
+  packadd! vim-tmux
+  packadd! vim-tmux-focus-events
+  packadd! molokai
+  packadd! vim-commentary
+  packadd! vim-eunuch
+  packadd! vim-fugitive
+  packadd! vim-repeat
+  packadd! vim-scriptease
+  packadd! supertab
+endif
 
 "=====================================================
 "===================== SETTINGS ======================

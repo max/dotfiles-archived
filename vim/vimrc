@@ -603,4 +603,7 @@ nmap <Leader>gi <Plug>(grammarous-open-info-window)
 nmap <Leader>gc <Plug>(grammarous-close-info-window)
 nmap <Leader>gf <Plug>(grammarous-fixit)
 
+let g:prettier#autoformat=0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
+
 " vim: sw=2 sw=2 et

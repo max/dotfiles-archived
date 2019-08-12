@@ -234,6 +234,11 @@ if [ ! -d "$(go env GOPATH)" ]; then
   cp -r $(go env GOPATH)/bin/* /usr/local/bin/
 fi
 
+if ! [ -x "$(command -v prettier)" ]; then
+  echo " ==> Installing prettier.."
+  yarn global add prettier
+fi
+
 if [ ! -d "${HOME}/.zsh" ]; then
   echo " ==> Installing zsh plugins"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME}/.zsh/zsh-syntax-highlighting"

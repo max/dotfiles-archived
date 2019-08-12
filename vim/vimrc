@@ -311,7 +311,7 @@ noremap j gj
 noremap k gk
 
 " Exit on j
-imap jj <Esc>
+inoremap kj <Esc>
 
 " Source (reload configuration)
 nnoremap <silent> <F5> :source $MNVIMRC<CR>

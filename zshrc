@@ -238,8 +238,9 @@ exit() {
 #    PLUGINS
 # ===================
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/base16-shell/base16-shell.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ===================
 #    THIRD PARTY

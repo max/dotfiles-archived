@@ -1,0 +1,90 @@
+[submodule "splitjoin.vim"]
+	path = vim/pack/bundle/opt/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "vim-bracketed-paste"]
+	path = vim/pack/bundle/opt/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "delimitMate"]
+	path = vim/pack/bundle/opt/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "ultisnips"]
+	path = vim/pack/bundle/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim-toml"]
+	path = vim/pack/bundle/opt/vim-toml
+	url = https://github.com/cespare/vim-toml.git
+[submodule "vim-present"]
+	path = vim/pack/bundle/opt/vim-present
+	url = https://github.com/corylanou/vim-present.git
+[submodule "Dockerfile.vim"]
+	path = vim/pack/bundle/opt/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "vim-json"]
+	path = vim/pack/bundle/opt/vim-json
+	url = https://github.com/elzr/vim-json.git
+[submodule "vim-go"]
+	path = vim/pack/bundle/opt/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim-hclfmt"]
+	path = vim/pack/bundle/opt/vim-hclfmt
+	url = https://github.com/fatih/vim-hclfmt.git
+[submodule "vim-nginx"]
+	path = vim/pack/bundle/opt/vim-nginx
+	url = https://github.com/fatih/vim-nginx.git
+[submodule "tabular"]
+	path = vim/pack/bundle/opt/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vim-hashicorp-tools"]
+	path = vim/pack/bundle/opt/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools.git
+[submodule "fzf"]
+	path = vim/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "fzf.vim"]
+	path = vim/pack/bundle/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "ack.vim"]
+	path = vim/pack/bundle/opt/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim-markdown"]
+	path = vim/pack/bundle/opt/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim-prettier"]
+	path = vim/pack/bundle/opt/vim-prettier
+	url = https://github.com/prettier/vim-prettier.git
+[submodule "nerdtree"]
+	path = vim/pack/bundle/opt/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim-choosewin"]
+	path = vim/pack/bundle/opt/vim-choosewin
+	url = https://github.com/t9md/vim-choosewin.git
+[submodule "vim-tmux-clipboard"]
+	path = vim/pack/bundle/opt/vim-tmux-clipboard
+	url = https://github.com/roxma/vim-tmux-clipboard.git
+[submodule "vim-tmux"]
+	path = vim/pack/bundle/opt/vim-tmux
+	url = https://github.com/tmux-plugins/vim-tmux.git
+[submodule "vim-tmux-focus-events"]
+	path = vim/pack/bundle/opt/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
+[submodule "molokai"]
+	path = vim/pack/bundle/opt/molokai
+	url = https://github.com/fatih/molokai.git
+[submodule "vim-commentary"]
+	path = vim/pack/bundle/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim-eunuch"]
+	path = vim/pack/bundle/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim-fugitive"]
+	path = vim/pack/bundle/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-repeat"]
+	path = vim/pack/bundle/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim-scriptease"]
+	path = vim/pack/bundle/opt/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease.git
+[submodule "supertab"]
+	path = vim/pack/bundle/opt/supertab
+	url = https://github.com/ervandew/supertab.git
